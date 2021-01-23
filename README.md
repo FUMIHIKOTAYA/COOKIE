@@ -49,3 +49,10 @@ https://docs.google.com/spreadsheets/d/1uH_uzPfkrHjY2jxkaAreaH1gnT5L677BfhjfZkLU
 - kaminari
 - mini_magick
 - ransack
+
+### 就職Termからの技術
+- フォロー機能
+- メッセージ機能
+
+### カリキュラム外の技術
+- ransackで検索機能実装
