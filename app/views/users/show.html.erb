@@ -1,0 +1,18 @@
+<h1><%= @user.name %>さんのページ</h1>
+
+<p>
+  <strong>名前:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>メールアドレス:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>自己紹介:</strong>
+  <%= @user.profile %>
+</p>
+
+<%= link_to '編集', edit_user_path %>
