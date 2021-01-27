@@ -6,9 +6,10 @@ Bundler.require(*Rails.groups)
 
 module Cookie
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
-
+    config.generators do |g|
+      g.assets false
+      g.helper false
 
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
