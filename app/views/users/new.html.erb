@@ -15,6 +15,9 @@
   <%= f.email_field :email %>
   <%= f.label :profile %>
   <%= f.text_area :profile %>
+  <%= f.label :profile_image %>
+  <%= f.file_field :profile_image %>
+  <%= f.hidden_field :profile_image_cache %>
   <%= f.label :password %>
   <%= f.password_field :password %>
   <%= f.submit "新規登録" %>

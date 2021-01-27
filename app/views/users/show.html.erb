@@ -15,4 +15,9 @@
   <%= @user.profile %>
 </p>
 
+<p>
+  <strong>プロフィール画像:</strong>
+  <%= image_tag "#{@user.profile_image}" %>
+</p>
+
 <%= link_to '編集', edit_user_path %>
