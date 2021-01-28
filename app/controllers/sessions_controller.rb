@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
@@ -11,5 +10,11 @@ class SessionsController < ApplicationController
       flash[:danger] = 'ログインに失敗しました'
       render :new
     end
+  end
+
+  def destroy
+    session.delete(:user_id)
+    flash[:notice] = 'ログアウトしました'
+    redirect_to new_session_path
   end
 end
