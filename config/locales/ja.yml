@@ -1,5 +1,13 @@
 ---
 ja:
+  view:
+    create: 登録
+    restaurant_name: 飲食店名
+    food_genre: 料理ジャンル
+    note: フリーコメント
+    recommend_dish: いつもオーダーする一品
+    reason: いつもオーダーする理由
+    dish_image: いつもオーダーする一品の画像
   activerecord:
     errors:
       messages:
