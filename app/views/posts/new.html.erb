@@ -15,7 +15,7 @@
 <%= f.text_area :note %>
 
 <%= f.fields_for :orders do |order| %>
-  <h4><%= t('view.recommend_dish') %> <%= o.index + 1 %></h4>
+  <h4><%= t('view.recommend_dish') %> <%= order.index + 1 %></h4>
   <%= order.label :recommend_dish %>
   <%= order.text_field :recommend_dish %>
   <%= order.label :reason %>
