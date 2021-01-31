@@ -7,7 +7,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    2.times { @post.orders.build }
+    @post.orders.build
   end
 
   def show

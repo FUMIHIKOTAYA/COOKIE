@@ -3,7 +3,7 @@ ja:
     models:
       user: ユーザー
       post: 飲食店の投稿
-      order: いつもオーダーする一品
+      order: オーダー
     attributes:
         user:
           name: 名前
@@ -15,6 +15,10 @@ ja:
           restaurant_name: 飲食店名
           food_genre: 料理ジャンル
           note: フリーコメント
+        post/orders:
+          recommend_dish: いつもオーダーする一品
+          reason: いつもオーダーする理由
+          dish_image: いつもオーダーする一品の画像
         order:
           recommend_dish: いつもオーダーする一品
           reason: いつもオーダーする理由
