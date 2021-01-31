@@ -1,0 +1,29 @@
+<%= form_with(model: @post, local: true) do |f| %>
+<% if @post.errors.any? %>
+  <ul>
+    <% @post.errors.full_messages.each do |message| %>
+     <li class="error_messages"><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= f.label :restaurant_name %>
+<%= f.text_field :restaurant_name %>
+<%= f.label :food_genre %>
+<%= f.select :food_genre, Post.food_genres.keys %>
+<%= f.label :note %>
+<%= f.text_area :note %>
+
+<%= f.fields_for :orders do |order| %>
+  <h4><%= t('view.recommend_dish') %> <%= order.index + 1 %></h4>
+  <%= order.label :recommend_dish %>
+  <%= order.text_field :recommend_dish %>
+  <%= order.label :reason %>
+  <%= order.text_field :reason %>
+  <%= order.label :dish_image %>
+  <%= order.file_field :dish_image %>
+  <%= order.hidden_field :dish_image_cache %>
+<% end %>
+
+<%= f.submit t('view.create') %>
+<% end %>

@@ -11,9 +11,7 @@ class PostsController < ApplicationController
     @post.orders.build
   end
 
-  def show
-    # @orders = @post.orders
-  end
+  def show; end
 
   def edit
     @post.orders.build
