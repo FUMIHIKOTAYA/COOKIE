@@ -1,4 +1,4 @@
-class ProfileImageUploader < CarrierWave::Uploader::Base
+class DishImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   storage :file
