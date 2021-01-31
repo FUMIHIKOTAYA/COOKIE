@@ -1,2 +1,10 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h2><%= t('view.index_post') %></h2>
+<%= link_to t('view.create_post'), new_post_path %>
+
+<% @posts.each do |post| %>
+  <h4><%= t('view.restaurant_name') %><%= post.restaurant_name %></h4>
+    <% post.orders.each do |order| %>
+      <p><strong><%= order.recommend_dish %></strong></p>
+    <% end %>
+  <p><%= link_to t('view.show'), post_path(post.id) %></p>
+<% end %>

@@ -2,12 +2,19 @@
 ja:
   view:
     create: 登録
+    show: 詳細
+    edit: 編集
+    back: 戻る
     restaurant_name: 飲食店名
     food_genre: 料理ジャンル
     note: フリーコメント
     recommend_dish: いつもオーダーする一品
     reason: いつもオーダーする理由
     dish_image: いつもオーダーする一品の画像
+    index_post: 飲食店一覧
+    show_post: 飲食店の詳細
+    edit_post: 飲食店情報の編集
+    create_post: 飲食店を登録する
   activerecord:
     errors:
       messages:

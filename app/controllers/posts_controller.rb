@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i(show edit update)
-  before_action :set_order, only: %i(show edit update)
+  before_action :set_orders, only: %i(show edit update)
 
   def index
+    @posts = Post.all.includes(:orders)
   end
 
   def new
@@ -11,9 +12,11 @@ class PostsController < ApplicationController
   end
 
   def show
+    # @orders = @post.orders
   end
 
   def edit
+    @post.orders.build
   end
 
   def create
@@ -26,6 +29,11 @@ class PostsController < ApplicationController
   end
 
   def update
+    if @post.update(post_params)
+      redirect_to posts_path, notice: '記事を編集しました。'
+    else
+      render :edit
+    end
   end
 
   def destroy
