@@ -4,7 +4,9 @@ ja:
     create: 登録
     show: 詳細
     edit: 編集
+    delete: 削除
     back: 戻る
+    delete_confirm: 削除します。よろしいですか。
     restaurant_name: 飲食店名
     food_genre: 料理ジャンル
     note: フリーコメント

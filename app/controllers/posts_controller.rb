@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i(show edit update)
+  before_action :set_post, only: %i(show edit update destroy)
   before_action :set_orders, only: %i(show edit update)
 
   def index
@@ -35,6 +35,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post.destroy
+    redirect_to posts_path, notice: '記事を削除しました。'
   end
 
   private
@@ -52,7 +54,7 @@ class PostsController < ApplicationController
       :restaurant_name,
       :food_genre,
       :note,
-      orders_attributes: %i(recommend_dish reason dish_image dish_image_cash),
+      orders_attributes: %i(recommend_dish reason dish_image dish_image_cash id _destroy),
     )
   end
 end

@@ -12,3 +12,4 @@
 
 <%= link_to t('view.back'), posts_path %>
 <%= link_to t('view.edit'), edit_post_path %>
+<%= link_to t('view.delete'), @post, method: :delete, data: { confirm: t('view.delete_confirm') } %>
