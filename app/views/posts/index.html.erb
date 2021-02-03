@@ -2,6 +2,7 @@
 <%= link_to t('view.create_post'), new_post_path %>
 
 <% @posts.each do |post| %>
+   <p><strong><%= post.user.name %>さん</strong></p>
   <h4><%= t('view.restaurant_name') %><%= post.restaurant_name %></h4>
     <% post.orders.each do |order| %>
       <p><strong><%= order.recommend_dish %></strong></p>

@@ -1,4 +1,5 @@
 <h2><%= t('view.show_post') %></h2>
+ <p><strong><%= @post.user.name %>さん</strong></p>
 
 <p><%= t('view.restaurant_name') %><%= @post.restaurant_name %></p>
 <p><%= t('view.food_genre') %><%= @post.food_genre %></p>
@@ -10,6 +11,6 @@
     <p><%= t('view.dish_image') %><%= image_tag "#{order.dish_image}" %></p>
   <% end %>
 
-<%= link_to t('view.back'), posts_path %>
+<%= link_to t('view.index_post'), posts_path %>
 <%= link_to t('view.edit'), edit_post_path %>
 <%= link_to t('view.delete'), @post, method: :delete, data: { confirm: t('view.delete_confirm') } %>
