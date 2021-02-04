@@ -15,5 +15,7 @@
   <%= image_tag "#{@user.profile_image}" %>
 </p>
 
+<% if @user.id == current_user.id %>
 <%= link_to '編集', edit_user_path %>
+<% end %>
 <%= link_to t('view.index_post'), posts_path %>
