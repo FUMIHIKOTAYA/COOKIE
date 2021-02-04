@@ -1,5 +1,11 @@
 <h2><%= t('view.show_post') %></h2>
- <p><strong><%= @post.user.name %>さん</strong></p>
+<% if @post.user.profile_image? %>
+  <%= image_tag "#{@post.user.profile_image}", :size =>'50x50' %>
+  <p><%= @post.user.name %>さん</p>
+<% else %>
+  <%= image_tag 'default.png', :size =>'50x50' %>
+  <p><%= @post.user.name %>さん</p>
+<% end %>
 
 <p><%= t('view.restaurant_name') %><%= @post.restaurant_name %></p>
 <p><%= t('view.food_genre') %><%= @post.food_genre %></p>
