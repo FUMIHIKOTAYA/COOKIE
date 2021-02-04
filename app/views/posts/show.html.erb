@@ -6,6 +6,7 @@
   <%= image_tag 'default.png', :size =>'50x50' %>
   <p><%= @post.user.name %>さん</p>
 <% end %>
+<%= link_to "#{@post.user.name}さんのページをみる",user_path(@post.user.id) %>
 
 <p><%= t('view.restaurant_name') %><%= @post.restaurant_name %></p>
 <p><%= t('view.food_genre') %><%= @post.food_genre %></p>
@@ -18,5 +19,7 @@
   <% end %>
 
 <%= link_to t('view.index_post'), posts_path %>
-<%= link_to t('view.edit'), edit_post_path %>
-<%= link_to t('view.delete'), @post, method: :delete, data: { confirm: t('view.delete_confirm') } %>
+<% if @post.user_id == current_user.id %>
+  <%= link_to t('view.edit'), edit_post_path %>
+  <%= link_to t('view.delete'), @post, method: :delete, data: { confirm: t('view.delete_confirm') } %>
+<% end %>
