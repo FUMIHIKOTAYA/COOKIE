@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i(show edit update destroy)
   before_action :set_orders, only: %i(show edit update)
+  before_action :authenticate_user
 
   def index
     @posts = Post.all.includes(:orders)

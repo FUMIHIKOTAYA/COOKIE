@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i(show edit update)
+  before_action :authenticate_user, only: %i(show edit)
 
   def show
     @posts = @user.posts.includes(:orders)
@@ -9,8 +10,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @user = User.new(user_params)
