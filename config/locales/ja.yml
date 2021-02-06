@@ -1,5 +1,35 @@
 ---
 ja:
+  view:
+    sign_up: 新規登録
+    create: 登録
+    show: 詳細
+    edit: 編集
+    delete: 削除
+    back: 戻る
+    delete_confirm: 削除します。よろしいですか。
+    restaurant_name: 飲食店名
+    food_genre: 料理ジャンル
+    note: フリーコメント
+    recommend_dish: いつもオーダーする一品
+    reason: いつもオーダーする理由
+    dish_image: いつもオーダーする一品の画像
+    index_post: 飲食店一覧
+    show_post: 飲食店の詳細
+    edit_post: 飲食店情報の編集
+    create_post: 飲食店を登録する
+    show_user: さんのページ
+    name: 名前
+    profile: 自己紹介
+    profile_image: プロフィール画像
+    edit_user: ユーザー情報の編集
+    flash:
+      user_create: ユーザーを登録し、ログインしました。
+      user_update: ユーザー情報を編集しました。
+      limit_access: 実行権限がありません。
+      post_save: 記事を登録しました。
+      post_update: 記事を編集しました。
+      post_delete: 記事を削除しました。
   activerecord:
     errors:
       messages:

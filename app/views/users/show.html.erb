@@ -1,18 +1,29 @@
-<h1><%= @user.name %>さんのページ</h1>
+<h1><%= @user.name %><%= t('view.show_user') %></h1>
 
 <p>
-  <strong>名前:</strong>
+  <strong><%= t('view.name') %></strong>
   <%= @user.name %>
 </p>
-
 <p>
-  <strong>自己紹介:</strong>
+  <strong><%= t('view.profile') %></strong>
   <%= @user.profile %>
 </p>
-
 <p>
-  <strong>プロフィール画像:</strong>
+  <strong><%= t('view.profile_image') %></strong>
   <%= image_tag "#{@user.profile_image}" %>
 </p>
 
-<%= link_to '編集', edit_user_path %>
+<% if @posts.present? %>
+  <% @posts.each do |post| %>
+    <p><strong><%= t('view.restaurant_name') %><%= post.restaurant_name %></strong></p>
+    <% post.orders.each do |order| %>
+        <p><strong><%= order.recommend_dish %></strong></p>
+    <% end %>
+    <p><%= link_to t('view.show'), post_path(post.id) %></p>
+  <% end %>
+<% end %>
+
+<% if @user.id == current_user.id %>
+<%= link_to t('view.edit'), edit_user_path %>
+<% end %>
+<%= link_to t('view.index_post'), posts_path %>

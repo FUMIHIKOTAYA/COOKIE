@@ -1,0 +1,21 @@
+<h2><%= t('view.index_post') %></h2>
+<%= link_to t('view.create_post'), new_post_path %>
+
+<% @posts.each do |post| %>
+<div>
+  <% if post.user.profile_image? %>
+    <%= image_tag "#{post.user.profile_image}", :size =>'50x50' %>
+    <p><%= post.user.name %>さん</p>
+  <% else %>
+    <%= image_tag 'default.png', :size =>'50x50' %>
+    <p><%= post.user.name %>さん</p>
+  <% end %>
+</div>
+<div>
+  <h4><%= t('view.restaurant_name') %><%= post.restaurant_name %></h4>
+    <% post.orders.each do |order| %>
+      <p><strong><%= order.recommend_dish %></strong></p>
+    <% end %>
+  <p><%= link_to t('view.show'), post_path(post.id) %></p>
+</div>
+<% end %>

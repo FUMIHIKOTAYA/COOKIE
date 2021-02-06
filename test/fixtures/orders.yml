@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recommend_dish: MyString
+  reason: MyText
+  dish_image: MyString
+
+two:
+  recommend_dish: MyString
+  reason: MyText
+  dish_image: MyString
