@@ -24,6 +24,7 @@ ja:
     profile_image: プロフィール画像
     edit_user: ユーザー情報の編集
     flash:
+      user_create: ユーザーを登録し、ログインしました。
       user_update: ユーザー情報を編集しました。
       limit_access: 実行権限がありません。
       post_save: 記事を登録しました。
