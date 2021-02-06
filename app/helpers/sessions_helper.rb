@@ -11,4 +11,7 @@ module SessionsHelper
     redirect_to new_session_path, notice: 'ログインして始められます。' unless logged_in?
   end
 
+  def logged_user
+    redirect_to user_path(current_user.id), notice: 'ログイン済みです。' if logged_in?
+  end
 end

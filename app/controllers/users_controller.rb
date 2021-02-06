@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i(show edit update)
   before_action :authenticate_user, only: %i(show edit)
+  before_action :logged_user, only: %i(new)
 
   def show
     @posts = @user.posts.includes(:orders)
