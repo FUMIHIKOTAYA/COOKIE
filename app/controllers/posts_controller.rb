@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      redirect_to posts_path, notice: '記事を投稿しました。'
+      redirect_to posts_path, notice: t('view.flash.post_save')
     else
       render :new
     end
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to posts_path, notice: '記事を編集しました。'
+      redirect_to posts_path, notice: t('view.flash.post_update')
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_path, notice: '記事を削除しました。'
+    redirect_to posts_path, notice: t('view.flash.post_delete')
   end
 
   private
@@ -61,6 +61,7 @@ class PostsController < ApplicationController
   end
 
   def limit_access
-    redirect_to posts_path, notice: t('view.flash.limit_access') unless current_user.id == params[:id].to_i
+    post = Post.find_by(id: params[:id])
+    redirect_to posts_path, notice: t('view.flash.limit_access') unless @post.user_id == current_user.id
   end
 end

@@ -1,17 +1,15 @@
-<h1><%= @user.name %>さんのページ</h1>
+<h1><%= @user.name %><%= t('view.show_user') %></h1>
 
 <p>
-  <strong>名前:</strong>
+  <strong><%= t('view.name') %></strong>
   <%= @user.name %>
 </p>
-
 <p>
-  <strong>自己紹介:</strong>
+  <strong><%= t('view.profile') %></strong>
   <%= @user.profile %>
 </p>
-
 <p>
-  <strong>プロフィール画像:</strong>
+  <strong><%= t('view.profile_image') %></strong>
   <%= image_tag "#{@user.profile_image}" %>
 </p>
 
@@ -25,8 +23,7 @@
   <% end %>
 <% end %>
 
-
 <% if @user.id == current_user.id %>
-<%= link_to '編集', edit_user_path %>
+<%= link_to t('view.edit'), edit_user_path %>
 <% end %>
 <%= link_to t('view.index_post'), posts_path %>
