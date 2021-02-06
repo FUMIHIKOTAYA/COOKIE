@@ -17,6 +17,9 @@ ja:
     show_post: 飲食店の詳細
     edit_post: 飲食店情報の編集
     create_post: 飲食店を登録する
+    flash:
+      user_update: ユーザー情報を編集しました。
+      limit_access: 実行権限がありません。
   activerecord:
     errors:
       messages:

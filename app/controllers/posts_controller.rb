@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i(show edit update destroy)
   before_action :set_orders, only: %i(show edit update)
   before_action :authenticate_user
+  before_action :limit_access, only: %i(edit update destroy)
 
   def index
     @posts = Post.all.includes(:orders)
@@ -57,5 +58,9 @@ class PostsController < ApplicationController
       :note,
       orders_attributes: %i(recommend_dish reason dish_image dish_image_cash id _destroy),
     )
+  end
+
+  def limit_access
+    redirect_to posts_path, notice: t('view.flash.limit_access') unless current_user.id == params[:id].to_i
   end
 end
