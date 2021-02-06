@@ -5,7 +5,8 @@ class PostsController < ApplicationController
   before_action :limit_access, only: %i(edit update destroy)
 
   def index
-    @posts = Post.all.includes(:orders)
+    @q = Post.ransack(params[:q])
+    @posts = @q.result.includes(:orders)
   end
 
   def new
