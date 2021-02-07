@@ -20,6 +20,11 @@ ja:
     edit_post: 飲食店情報の編集
     create_post: 飲食店を登録する
     show_user: さんのページ
+    follows: フォロー・フォロワー一覧
+    follow: フォロー
+    follower: フォロワー
+    follow_users: さんがフォローしている人
+    follower_users: さんをフォローしている人
     name: 名前
     profile: 自己紹介
     profile_image: プロフィール画像
@@ -31,6 +36,7 @@ ja:
       post_save: 記事を登録しました。
       post_update: 記事を編集しました。
       post_delete: 記事を削除しました。
+      inaccessible: 他のユーザーはアクセスできません。
   activerecord:
     errors:
       messages:
