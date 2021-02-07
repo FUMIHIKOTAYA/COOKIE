@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   resources :posts
 
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users
+  resources :users, only: [:new, :show, :create, :edit] do
+    get :follow, on: :member
+  end
+  resources :relationships, only: [:create, :destroy]
 end
