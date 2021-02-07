@@ -12,6 +12,7 @@
               <%= image_tag 'default.png', :size =>'50x50',class:"rounded-circle" %>
             <% end %>
             <p><%= follow_user.name %></p>
+            <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: follow_user.id), method: :post, class: 'btn btn-primary' %>
           <div class="follow-btn"><%= render 'follow_form', user: follow_user %></div>
         </div>
         <% end %>
@@ -27,6 +28,7 @@
               <%= image_tag 'default.png', :size =>'50x50',class:"rounded-circle" %>
             <% end %>
             <p><%= follower_user.name %></p>
+            <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: follower_user.id), method: :post, class: 'btn btn-primary' %>
           </div>
         <% end %>
     </div>
