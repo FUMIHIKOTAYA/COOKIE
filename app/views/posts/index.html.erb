@@ -1,19 +1,9 @@
 <h2><%= t('view.index_post') %></h2>
-<%= link_to t('view.create_post'), new_post_path %>
+<h3><%= t('view.index_recommend') %></h3>
 
-  <%= search_form_for @q do |f| %>
-    <%= f.label :restaurant_name_cont, '飲食店名' %>
-    <%= f.text_field :restaurant_name_cont %>
-    <%= f.label :food_genre_eq, '料理ジャンル' %>
-    <%= f.select :food_genre_eq, options_for_select({ 焼鳥: 0, 焼肉・ホルモン: 1, 蕎麦・うどん: 2, お好み焼き・もんじゃ: 3, 鍋: 4, 丼もの: 5, パスタ・ピザ: 6, ハンバーガー: 7, カレー: 8, ラーメン: 9, 中華料理: 10,
-    スペイン料理: 11, タイ料理: 12, 韓国料理: 13, 居酒屋: 14, ワインバー: 15, 和食その他: 16, 洋食その他: 17, カフェ・スイーツ: 18 }), include_blank: true %>
-    <%= f.label :orders_recommend_dish_cont, 'いつもオーダーする一品' %>
-    <%= f.text_field :orders_recommend_dish_cont %>
+<%= render 'search' %>
 
-    <div class="search_button">
-      <%= f.submit '検索', class:'btn-primary' %>
-    </div>
-  <% end %>
+<p><%= link_to t('view.create_post'), new_post_path, class: 'btn btn-outline-primary btn-white' %></p>
 
 <% @posts.each do |post| %>
 <div>
