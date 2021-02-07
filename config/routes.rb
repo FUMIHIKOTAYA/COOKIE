@@ -8,4 +8,7 @@ Rails.application.routes.draw do
     get :follow, on: :member
   end
   resources :relationships, only: [:create, :destroy]
+  resources :conversations do
+    resources :messages
+  end
 end
