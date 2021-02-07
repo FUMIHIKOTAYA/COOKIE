@@ -32,6 +32,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def follow
+    @user = User.find(params[:id])
+    if @user == current_user
+      @following_users = @user.following
+      @followers_users = @user.followers
+      render 'show_follow'
+    else
+      redirect_to user_path(current_user.id), notice: t('view.flash.inaccessible')
+    end
+  end
+
   private
 
   def set_user
