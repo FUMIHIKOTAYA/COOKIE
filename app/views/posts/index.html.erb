@@ -1,5 +1,9 @@
 <h2><%= t('view.index_post') %></h2>
-<%= link_to t('view.create_post'), new_post_path %>
+<h3><%= t('view.index_recommend') %></h3>
+
+<%= render 'search' %>
+
+<p><%= link_to t('view.create_post'), new_post_path, class: 'btn btn-outline-primary btn-white' %></p>
 
 <% @posts.each do |post| %>
 <div>
