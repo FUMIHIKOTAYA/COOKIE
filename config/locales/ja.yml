@@ -29,6 +29,9 @@ ja:
     profile: 自己紹介
     profile_image: プロフィール画像
     edit_user: ユーザー情報の編集
+    mypage: マイページ
+    login: ログイン
+    logout: ログアウト
     flash:
       user_create: ユーザーを登録し、ログインしました。
       user_update: ユーザー情報を編集しました。

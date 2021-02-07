@@ -10,16 +10,46 @@
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-    <% if logged_in? %>
-      <%= link_to "マイページ", user_path(current_user.id) %>
-      <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
-    <% else %>
-      <%= link_to "新規登録", new_user_path %>
-      <%= link_to "ログイン", new_session_path %>
-    <% end %>
-    <%= yield %>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark" style="background-color:#889bb3;">
+        <a class="navbar-brand" href="#">
+          <img src="<%= asset_path "sample.png" %>" width="30" height="30" alt="">
+          <%= 'COOKIE' %>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">　
+          <% if logged_in? %>
+            <li class="nav-item"><%= link_to t('view.index_post'), posts_path %></li>
+            <li class="nav-item"><%= link_to t('view.mypage'), user_path(current_user.id) %></li>
+            <li class="nav-item"><%= link_to t('view.logout'), session_path(current_user.id), method: :delete %></li>
+          <% else %>
+            <li class="nav-item"><%= link_to t('view.sign_up'), new_user_path %></li>
+            <li class="nav-item"><%= link_to t('view.login'), new_session_path %></li>
+          <% end %>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container-fluid">
+      <% if flash.notice %>
+        <div class="alert alert-info">
+          <%= flash.notice %><button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+      <% elsif flash.alert %>
+        <div class="alert alert-warning">
+          <%= flash.alert %><button type="button" class="close" data-dismiss="alert">&times;</button>
+        </div>
+      <% end %>
+      <%= yield %>
+      </div>
+      <footer class="footer">
+      <div class="container">
+        <p class="text-muted">&copy;2021 COOKIE.</p>
+      </div>
+    </footer>
   </body>
 </html>
