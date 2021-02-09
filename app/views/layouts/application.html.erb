@@ -22,7 +22,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">　
           <% if logged_in? %>
-            <li class="nav-item"><%= link_to t('view.index_post'), posts_path %></li>
+            <li class="nav-item"><%= link_to t('view.top'), posts_path %></li>
             <li class="nav-item"><%= link_to t('view.mypage'), user_path(current_user.id) %></li>
             <li class="nav-item"><%= link_to t('view.logout'), session_path(current_user.id), method: :delete %></li>
           <% else %>
