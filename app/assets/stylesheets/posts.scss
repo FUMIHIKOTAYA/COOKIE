@@ -1,0 +1,35 @@
+//search
+.form-frame {
+  border: 2px solid #38210f;
+ border-radius: 4px;
+ margin: 2em 0;
+ padding: 2em;
+ position: relative;
+}
+.form-frame::before {
+ background-color: #fff;
+ color: #38210f;
+ content: "検索";
+ font-weight: bold;
+ left: 1em;
+ padding: 0 .5em;
+ position: absolute;
+ top: -1em;
+}
+
+.col-form-label {
+  margin-left: 15px;
+}
+
+.search_btn {
+  background-color: #222e22;
+  border: 1px solid #2e3b2e;
+  box-shadow: 1px 1px 0 rgba(255, 255, 255, .4) inset,
+                  0 0 4px rgba(0, 0, 0, .8) inset,
+                  2px 2px 2px rgba(0, 0, 0, .4);
+  color: #fff;
+  margin: 1em 0;
+  padding: 1em;
+  margin-right: 15px;
+  margin-top: 30px;
+}

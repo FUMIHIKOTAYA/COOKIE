@@ -8,15 +8,15 @@
 
   <p><%= link_to t('view.create_post'), new_post_path, class: 'btn btn-outline-primary btn-white' %></p>
 
-  <div class="row row-cols-1 row-cols-md-3">
+  <div class="row row-cols-md-3">
     <% @posts.each do |post| %>
     <div class="col mb-4">
-      <div class="card m-2">
-        <%= link_to post_path(post.id) ,class:"card-body text-dark" do %>
+      <div class="card m-2 h-100">
+        <%= link_to post_path(post.id), class:"card-body text-dark" do %>
           <% if post.user.profile_image? %>
-            <%= image_tag "#{post.user.profile_image}", :size =>'200x200' ,class:"card-img-top" %>
+            <%= image_tag "#{post.user.profile_image}", :size =>'100x100' ,class:"card-img-top rounded-circle" %>
           <% else %>
-            <%= image_tag 'default.png', :size =>'200x200' ,class:"card-img-top" %>
+            <%= image_tag 'default.png', :size =>'100x100', class:"card-img-top rounded-circle" %>
           <% end %>
 
         <div class="card-body text-center">
