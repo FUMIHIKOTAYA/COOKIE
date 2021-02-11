@@ -1,6 +1,6 @@
 <div class="row d-flex justify-content-center">
 
-<div class="m-5">
+  <div class="m-5">
   <h4 class="text-center text-muted pt-3"><%= t('view.index_post') %></h4>
   <h2 class="text-center font-weight-bold pb-5"><%= t('view.index_recommend') %></h2>
 
@@ -8,28 +8,38 @@
 
   <p><%= link_to t('view.create_post'), new_post_path, class: 'btn btn-outline-primary btn-white' %></p>
 
-  <div class="row row-cols-md-3">
+  <div class="row not-underline">
     <% @posts.each do |post| %>
-    <div class="col mb-4">
-      <div class="card m-2 h-100">
-        <%= link_to post_path(post.id), class:"card-body text-dark" do %>
-          <% if post.user.profile_image? %>
-            <%= image_tag "#{post.user.profile_image}", :size =>'100x100' ,class:"card-img-top rounded-circle" %>
-          <% else %>
-            <%= image_tag 'default.png', :size =>'100x100', class:"card-img-top rounded-circle" %>
-          <% end %>
-
-        <div class="card-body text-center">
-          <h4 class="card-subtitle text-muted pb-3"><%= post.user.name %>さん</h4>
-            <h3 class="card-title font-weight-bold"><%= post.restaurant_name %></h3>
-            <% post.orders.each do |order| %>
-              <p class="card-text"><%= order.recommend_dish %></p>
-            <% end %>
+      <%= link_to post_path(post.id), class:"text-dark" do %>
+        <div class="card card-type m-3" style="width: 35rem;">
+          <div class="card-body post-body">
+            <table class="table table-responsive table-sm post-list">
+              <tbody>
+                <tr>
+                  <td class="border-top-0" rowspan="2">
+                    <% if post.user.profile_image? %>
+                      <%= image_tag "#{post.user.profile_image}", :size =>'100x100' ,class:"rounded-circle" %>
+                    <% else %>
+                      <%= image_tag 'default.png', :size =>'100x100', class:"rounded-circle" %>
+                    <% end %>
+                  </td>
+                  <td class="text-muted border-top-0"><%= post.user.name %>さん</td>
+                </tr>
+                <tr>
+                  <td class="font-weight-bold border-top-0"><%= post.restaurant_name %></td>
+                </tr>
+              </tbody>
+            </table>
+            <div>
+              <% post.orders.each do |order| %>
+                <span class="badge badge-pill badge-dark"><%= order.recommend_dish %></span>
+              <% end %>
+            </div>
           </div>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
+          <caption><%= t('view.index_caption') %></caption>
+        </div>
+      <% end %>
+    <% end %>
   </div>
-</div>
+  </div>
 </div>

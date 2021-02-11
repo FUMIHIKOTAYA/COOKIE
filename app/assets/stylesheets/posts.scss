@@ -33,3 +33,27 @@
   margin-right: 15px;
   margin-top: 30px;
 }
+
+//index
+.card-type{
+  padding: 0.5em 2em;
+  background: white;
+  border-top: solid 3px #38210f;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.30);
+}
+
+.post-list {
+  margin-bottom: 0;
+}
+
+.post-body{
+  padding: 1.2rem;
+}
+
+.not-underline a:hover {
+  text-decoration: none;
+}
+
+.card-type:hover{
+  opacity: .5;
+}
