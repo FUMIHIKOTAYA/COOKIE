@@ -19,7 +19,8 @@ ja:
     index_caption: 行きつけの飲食店
     show_post: 飲食店の詳細
     edit_post: 飲食店情報の編集
-    create_post: 飲食店を登録する
+    create_post: 飲食店登録画面
+    create_recommend: 飲食店を登録しよう
     show_user: さんのページ
     follows: フォロー・フォロワー一覧
     follow: フォロー
