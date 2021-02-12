@@ -6,7 +6,9 @@
 
   <%= render 'search' %>
 
-  <p><%= link_to t('view.create_post'), new_post_path, class: 'btn btn-outline-primary btn-white' %></p>
+<div class="row d-flex justify-content-center my-2">
+  <p><%= link_to t('view.create_post'), new_post_path, class: 'btn square_btn btn-lg' %></p>
+</div>
 
   <div class="row not-underline">
     <% @posts.each do |post| %>
@@ -32,7 +34,7 @@
             </table>
             <div>
               <% post.orders.each do |order| %>
-                <span class="badge badge-pill badge-dark"><%= order.recommend_dish %></span>
+                <span class="badge badge-pill badge-dark"><%= order.recommend_dish.truncate(12) %></span>
               <% end %>
             </div>
           </div>
