@@ -39,7 +39,7 @@
                     <% if order.dish_image? %>
                       <%= image_tag "#{order.dish_image}", :size =>'120x120' ,class:"rounded" %>
                     <% else %>
-                      <%= image_tag 'default2.png', :size =>'120x120', class:"rounded" %>
+                      <%= image_tag 'default_dish.png', :size =>'120x120', class:"rounded" %>
                     <% end %>
                   </td>
                   <td class="border-top-0"><%= strip_tags(order.reason).truncate(160) %></td>
