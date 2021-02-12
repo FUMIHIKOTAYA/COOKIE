@@ -23,6 +23,10 @@
     font-size: 1.6rem;
   }
 
+  a {
+    color: white;
+  }
+
   .not-underline a:hover {
     text-decoration: none;
   }
