@@ -27,7 +27,10 @@ ja:
     follow_users: さんがフォローしている人
     follower_users: さんをフォローしている人
     name: 名前
+    nickname: ニックネーム可
+    email: メールアドレス
     profile: 自己紹介
+    six_characters: 6文字以上
     profile_image: プロフィール画像
     edit_user: ユーザー情報の編集
     top: トップ
