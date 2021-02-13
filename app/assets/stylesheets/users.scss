@@ -87,18 +87,28 @@
 }
 
 .square-btn {
-	display: block;
-	position: relative;
-	width: 160px;
-	padding: 0.8em;
-	text-align: center;
-	text-decoration: none;
-	color: #fff;
-	background: #304464;
+  display: block;
+  position: relative;
+  width: 160px;
+  padding: 0.8em;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background: #304464;
 }
 
 .square-btn:hover {
-	 opacity:0.8;
-	 cursor: pointer;
-	 text-decoration: none;
+  opacity:0.8;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+//follow
+.follow-list{
+  text-align: center;
+  border-bottom: 2px solid #212b3c;
+}
+
+.follow-name {
+  font-size: 20px;
 }
