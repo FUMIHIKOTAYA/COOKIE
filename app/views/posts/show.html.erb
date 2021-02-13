@@ -14,7 +14,7 @@
           <% end %>
           <div class="center">
             <p><%= @post.user.name %>さん</p>
-            <%= link_to "#{@post.user.name}さんのページをみる" ,user_path(@post.user.id) %>
+            <button class="btn square-btn btn-lg"><%= link_to "#{@post.user.name}さんのページをみる" ,user_path(@post.user.id) %></button>
           </div>
         </div>
 
@@ -49,13 +49,16 @@
           <% end %>
         </div>
       </div>
+      <div class="row d-flex justify-content-center my-2">
+        <% if @post.user_id == current_user.id %>
+          <button class="btn small-btn ml-3 mt-2"><%= link_to t('view.edit'), edit_post_path, class: 'btn small_btn' %></button>
+          <button class="btn small-btn ml-3 mt-2"><%= link_to t('view.delete'), @post, method: :delete, data: { confirm: t('view.delete_confirm') } %></button>
+        <% end %>
+      </div>
     </div>
 
-    <%= link_to t('view.index_post'), posts_path %>
-    <% if @post.user_id == current_user.id %>
-      <%= link_to t('view.edit'), edit_post_path %>
-      <%= link_to t('view.delete'), @post, method: :delete, data: { confirm: t('view.delete_confirm') } %>
-    <% end %>
-
+    <div class="row d-flex justify-content-center my-3">
+      <p><%= link_to t('view.index_post'), posts_path, class: 'btn square_btn' %></p>
+    </div>
   </div>
 </div>
