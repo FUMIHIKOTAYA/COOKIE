@@ -1,36 +1,88 @@
-<h1><%= @user.name %><%= t('view.show_user') %></h1>
+<div class="container">
+  <div class="user_title">
+    <h2 class="text-center text-muted pt-3"><%= @user.name %><%= t('view.show_user') %></h2>
+  </div>
 
-<% if @user.id == current_user.id %>
-  <p><%= link_to t('view.follows'),  follow_user_path(current_user.id), class: 'btn btn-outline-primary btn-white' %></p>
-<% end %>
-<% if @user.id != current_user.id %>
-    <%= render 'follow_form', user: @user %>
-<% end %>
-
-<p>
-  <strong><%= t('view.name') %></strong>
-  <%= @user.name %>
-</p>
-<p>
-  <strong><%= t('view.profile') %></strong>
-  <%= @user.profile %>
-</p>
-<p>
-  <strong><%= t('view.profile_image') %></strong>
-  <%= image_tag "#{@user.profile_image}" %>
-</p>
-
-<% if @posts.present? %>
-  <% @posts.each do |post| %>
-    <p><strong><%= t('view.restaurant_name') %><%= post.restaurant_name %></strong></p>
-    <% post.orders.each do |order| %>
-        <p><strong><%= order.recommend_dish %></strong></p>
+  <div class="row d-flex flex-row-reverse my-2">
+    <% if @user.id == current_user.id %>
+      <p><%= link_to t('view.follows'),  follow_user_path(current_user.id), class: 'btn square-btn' %></p>
     <% end %>
-    <p><%= link_to t('view.show'), post_path(post.id) %></p>
-  <% end %>
-<% end %>
+    <% if @user.id != current_user.id %>
+      <%= render 'follow_form', user: @user %>
+    <% end %>
+  </div>
 
-<% if @user.id == current_user.id %>
-<%= link_to t('view.edit'), edit_user_path %>
-<% end %>
-<%= link_to t('view.index_post'), posts_path %>
+  <div>
+    <table class="table table-bordered">
+      <tr class="tr-color" >
+        <td colspan="2"><%= t('view.name') %></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <% if @user.profile_image? %>
+            <%= image_tag "#{@user.profile_image}", :size =>'120x120' %>
+          <% else %>
+            <%= image_tag 'default.png', :size =>'120x120' %>
+          <% end %>
+          <%= @user.name %>
+        </td>
+      </tr>
+      <tr class="tr-color">
+        <td colspan="2"><%= t('view.profile') %></td>
+      </tr>
+      <tr>
+        <td colspan="2"><%= simple_format(@user.profile) %></td>
+      </tr>
+    </table>
+
+    <div class="row d-flex justify-content-center my-2">
+      <% if @user.id == current_user.id %>
+        <p><%= link_to t('view.edit'), edit_user_path, class: 'btn square_btn' %></p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="user_title">
+    <h4><strong><%= @user.name %><%= t('view.posts_user') %></strong></h4>
+    <% unless @posts.present? %>
+      <%= t('view.no_posts') %>
+    <% end %>
+    <div class="row not-underline">
+    <% @posts.each do |post| %>
+      <%= link_to post_path(post.id), class:"text-dark" do %>
+      <div class="card card_type m-3" style="width: 60rem;">
+        <div class="card-body post_body">
+          <table class="table table-responsive table-sm post-list">
+            <tbody>
+              <tr>
+                <td class="border-top-0" rowspan="2">
+                  <% if post.user.profile_image? %>
+                    <%= image_tag "#{post.user.profile_image}", :size =>'60x60' ,class:"rounded-circle" %>
+                  <% else %>
+                    <%= image_tag 'default.png', :size =>'60x60', class:"rounded-circle" %>
+                  <% end %>
+                </td>
+                <td class="text-muted border-top-0"><%= post.user.name %>さん</td>
+              </tr>
+              <tr>
+                <td class="font-weight-bold border-top-0"><%= post.restaurant_name %></td>
+              </tr>
+            </tbody>
+          </table>
+          <div>
+            <% post.orders.each do |order| %>
+              <span class="badge badge-pill badge-dark"><%= order.recommend_dish.truncate(12) %></span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center my-2">
+    <p><%= link_to t('view.index_post'), posts_path, class: 'btn square_btn' %></p>
+  </div>
+
+</div>

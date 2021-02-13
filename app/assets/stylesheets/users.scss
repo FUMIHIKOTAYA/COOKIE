@@ -60,3 +60,45 @@
   margin-top: 30px;
   margin-left: 35%;
 }
+
+//show
+.user_title {
+  margin-top: 20px;
+}
+
+.tr-color{
+  color: white;
+  background: #8d7b41;
+}
+
+.card_type{
+  padding: 0.5em 2em;
+  background: white;
+  border-top: solid 3px #1c361b;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.30);
+}
+
+.card_type:hover{
+  opacity: .6;
+}
+
+.post_body{
+  padding: 0.5rem;
+}
+
+.square-btn {
+	display: block;
+	position: relative;
+	width: 160px;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	background: #304464;
+}
+
+.square-btn:hover {
+	 opacity:0.8;
+	 cursor: pointer;
+	 text-decoration: none;
+}
