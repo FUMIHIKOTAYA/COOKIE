@@ -1,9 +1,10 @@
-<h3 class="msg-title">メッセージ</h3>
+<h2 class="text-center text-muted pt-5">メッセージ</h2>
+
 <div class="ui segment">
 <% @messages.each do |message| %>
   <% if message.body.present? %>
     <% if message.user == current_user %>
-      <div class="item msg-right">
+      <div class="item msg-right py-2">
         <div class="content">
           <div class="header">
             <strong><%= message.user.name %></strong>
@@ -21,7 +22,7 @@
         </div>
       </div>
     <% else %>
-      <div class="item msg-left">
+      <div class="item msg-left py-2">
         <div class="content">
           <div class="header">
             <strong><%= message.user.name %></strong>
@@ -48,7 +49,10 @@
 </div>
   <%= f.text_field :user_id, value: current_user.id, type: 'hidden' %>
 <div class = "msg-right">
-  <%= f.submit('送信', class:'btn btn-primary') %>
+  <%= f.submit('送信', class:'btn run-btn mt-3') %>
 </div>
 <% end %>
-<p class = "text-right"><%= link_to t('view.back'), follow_user_path(current_user.id), class: 'btn btn-outline-primary btn-white' %></p>
+
+<div class="row d-flex justify-content-center my-5">
+  <%= link_to t('view.back'), follow_user_path(current_user.id), class: 'btn small-btn' %>
+</div>
