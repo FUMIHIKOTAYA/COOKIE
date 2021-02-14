@@ -1,0 +1,38 @@
+#top_page {
+  background-image: url('top.jpg');
+  background-position: center center;
+  background-size : cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: rgba(255,255,255,0.5);
+  background-blend-mode: lighten;
+  ;
+}
+
+.intro-title {
+  color: #201b14;
+  font-size: 47px;
+  font-weight: 800;
+  line-height: 50px;
+  margin-bottom: 15px;
+}
+
+.intro-subtitle {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 50px;
+  margin-bottom: 5px;
+}
+
+.intro-detail {
+  font-size: 18px;
+  line-height: 25px;
+  margin-bottom: 65px;
+}
+
+.top_link a {
+  color: #11242e;
+  font-size: 27px;
+  font-weight: 800;
+  text-decoration: none;
+}

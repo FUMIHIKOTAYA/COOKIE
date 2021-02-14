@@ -1,3 +1,114 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+//sign up
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  text-align: left;
+}
+
+#signup_page {
+  background-color:  #f3ebe1;
+}
+
+.signup_form {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 15px;
+  background-color: #fff;
+}
+
+.signup_title {
+  font-weight: bold;
+  margin: 40px 0 20px 0;
+  text-align: center;
+}
+
+.signup_btn {
+  background-color: #222e22;
+  border: 1px solid #2e3b2e;
+  box-shadow: 1px 1px 0 rgba(255, 255, 255, .4) inset,
+                  0 0 4px rgba(0, 0, 0, .8) inset,
+                  2px 2px 2px rgba(0, 0, 0, .4);
+  color: #fff;
+  margin: 1em 0;
+  padding: 1em;
+  margin-right: 15px;
+  margin-top: 30px;
+  margin-left: 80%;
+}
+
+//login
+.login_form {
+  width: 100%;
+  max-width: 300px;
+  margin: auto;
+  padding: 15px;
+  background-color: #fff;
+}
+
+.login_btn {
+  background-color: #56442d;
+  border: 1px solid #917247;
+  box-shadow: 1px 1px 0 rgba(255, 255, 255, .4) inset,
+                  0 0 4px rgba(0, 0, 0, .8) inset,
+                  2px 2px 2px rgba(0, 0, 0, .4);
+  color: #fff;
+  margin: 1em 0;
+  padding: 1em;
+  margin-right: 15px;
+  margin-top: 30px;
+  margin-left: 35%;
+}
+
+//show
+.user_title {
+  margin-top: 20px;
+}
+
+.tr-color{
+  color: white;
+  background: #8d7b41;
+}
+
+.card_type{
+  padding: 0.5em 2em;
+  background: white;
+  border-top: solid 3px #1c361b;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.30);
+}
+
+.card_type:hover{
+  opacity: .6;
+}
+
+.post_body{
+  padding: 0.5rem;
+}
+
+.square-btn {
+  display: block;
+  position: relative;
+  width: 160px;
+  padding: 0.8em;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background: #304464;
+}
+
+.square-btn:hover {
+  opacity:0.8;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+//follow
+.follow-list{
+  text-align: center;
+  border-bottom: 2px solid #212b3c;
+}
+
+.follow-name {
+  font-size: 20px;
+}

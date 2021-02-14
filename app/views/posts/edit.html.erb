@@ -1,6 +1,9 @@
-<h2><%= t('view.edit_post') %></h2>
+<div class="post_form_title">
+  <h4 class="text-center py-4"><%= t('view.edit_post') %></h4>
+</div>
 
 <%= render 'form' %>
 
-<%= link_to t('view.show'), post_path %>
-<%= link_to t('view.index_post'), posts_path %>
+<div class="row d-flex justify-content-center my-2">
+  <p><%= link_to t('view.back'), post_path, class: 'btn btn-outline-dark btn-white' %></p>
+</div>

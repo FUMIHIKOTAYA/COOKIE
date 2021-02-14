@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  root 'posts#index'
+  root 'tops#index'
 
+  resources :tops, only: [:index]
   resources :posts
 
   resources :sessions, only: [:new, :create, :destroy]

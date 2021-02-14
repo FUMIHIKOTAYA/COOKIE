@@ -16,19 +16,31 @@ ja:
     dish_image: いつもオーダーする一品の画像
     index_post: 飲食店一覧
     index_recommend: 行きつけの飲食店を共有しよう。さがそう。
+    index_caption: 行きつけの飲食店
     show_post: 飲食店の詳細
     edit_post: 飲食店情報の編集
-    create_post: 飲食店を登録する
+    create_post: 飲食店登録画面
+    create_recommend: 飲食店を登録しよう
     show_user: さんのページ
+    posts_user: さんの投稿
+    no_posts: まだ投稿はありません
     follows: フォロー・フォロワー一覧
     follow: フォロー
     follower: フォロワー
     follow_users: さんがフォローしている人
     follower_users: さんをフォローしている人
     name: 名前
+    nickname: ニックネーム可
+    email: メールアドレス
+    password: パスワード
     profile: 自己紹介
+    six_characters: 6文字以上
     profile_image: プロフィール画像
     edit_user: ユーザー情報の編集
+    top: トップ
+    mypage: マイページ
+    login: ログイン
+    logout: ログアウト
     flash:
       user_create: ユーザーを登録し、ログインしました。
       user_update: ユーザー情報を編集しました。

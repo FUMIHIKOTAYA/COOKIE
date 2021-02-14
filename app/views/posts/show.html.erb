@@ -1,25 +1,64 @@
-<h2><%= t('view.show_post') %></h2>
-<% if @post.user.profile_image? %>
-  <%= image_tag "#{@post.user.profile_image}", :size =>'50x50' %>
-  <p><%= @post.user.name %>さん</p>
-<% else %>
-  <%= image_tag 'default.png', :size =>'50x50' %>
-  <p><%= @post.user.name %>さん</p>
-<% end %>
-<%= link_to "#{@post.user.name}さんのページをみる" ,user_path(@post.user.id) %>
+<div class="row d-flex justify-content-center">
+  <div class="col-10 col-lg-8 col-xl-6 mb-3 mb-md-0">
+    <div class="show_title">
+      <h2><%= t('view.show_post') %></h2>
+      <div><p class="posted-date text-muted">投稿日 <%= @post.created_at.strftime('%Y/%m/%d') %></p></div>
+    </div>
+    <div class="card py-3">
+      <div class="card-body">
+        <div class="row pl-4">
+          <% if @post.user.profile_image? %>
+            <%= image_tag "#{@post.user.profile_image}", :size =>'80x80' %>
+          <% else %>
+            <%= image_tag 'default.png', :size =>'80x80' %>
+          <% end %>
+          <div class="center">
+            <p><%= @post.user.name %>さん</p>
+            <button class="btn square-btn btn-lg"><%= link_to "#{@post.user.name}さんのページをみる" ,user_path(@post.user.id) %></button>
+          </div>
+        </div>
 
-<p><%= t('view.restaurant_name') %><%= @post.restaurant_name %></p>
-<p><%= t('view.food_genre') %><%= @post.food_genre %></p>
-<p><%= t('view.note') %><%= @post.note %></p>
-  <% @post.orders.each_with_index do |order, i| %>
-    <h3><%= t('view.recommend_dish') %><%= i+1 %></h3>
-    <p><%= t('view.recommend_dish') %><%= order.recommend_dish %></p>
-    <p><%= t('view.reason') %><%= order.reason %></p>
-    <p><%= t('view.dish_image') %><%= image_tag "#{order.dish_image}" %></p>
-  <% end %>
+        <div class="restaurant-content">
+          <div class="row pl-4 pt-4 d-flex align-items-center">
+            <h1 class="card-title font-weight-bold"><%= @post.restaurant_name %></h1>
+          </div>
+          <div class="row pl-4">
+            <h4><%= t('view.food_genre') %>：<%= @post.food_genre %></h4>
+          </div>
+          <div class="row pl-4">
+            <h4><%= t('view.note') %>：<%= strip_tags(@post.note).truncate(80) %></h4>
+          </div>
+          <% @post.orders.each_with_index do |order, i| %>
+            <table class="table table-responsive post-list">
+            <div class="row pl-4 pt-4">
+              <p><%= t('view.recommend_dish') %><%= i+1 %>：<%= order.recommend_dish %></p>
+            </div>
+              <tbody>
+                <tr>
+                  <td class="border-top-0" rowspan="2">
+                    <% if order.dish_image? %>
+                      <%= image_tag "#{order.dish_image}", :size =>'120x120' ,class:"rounded" %>
+                    <% else %>
+                      <%= image_tag 'default_dish.png', :size =>'120x120', class:"rounded" %>
+                    <% end %>
+                  </td>
+                  <td class="border-top-0"><%= strip_tags(order.reason).truncate(160) %></td>
+                </tr>
+              </tbody>
+            </table>
+          <% end %>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center my-2">
+        <% if @post.user_id == current_user.id %>
+          <button class="btn small-btn ml-3 mt-2"><%= link_to t('view.edit'), edit_post_path, class: 'btn small_btn' %></button>
+          <button class="btn small-btn ml-3 mt-2"><%= link_to t('view.delete'), @post, method: :delete, data: { confirm: t('view.delete_confirm') } %></button>
+        <% end %>
+      </div>
+    </div>
 
-<%= link_to t('view.index_post'), posts_path %>
-<% if @post.user_id == current_user.id %>
-  <%= link_to t('view.edit'), edit_post_path %>
-  <%= link_to t('view.delete'), @post, method: :delete, data: { confirm: t('view.delete_confirm') } %>
-<% end %>
+    <div class="row d-flex justify-content-center my-3">
+      <p><%= link_to t('view.index_post'), posts_path, class: 'btn square_btn' %></p>
+    </div>
+  </div>
+</div>

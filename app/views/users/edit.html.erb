@@ -1,22 +1,39 @@
-<h1><%= t('view.edit_user') %></h1>
+<div id="wrapper">
+  <body id="signup_page">
+    <div class="signup_form pt-0">
+      <h3 class="user_title text-center"><%= t('view.edit_user') %></h3>
 
-<%= form_with(model: @user, local: true) do |f| %>
-  <% if @user.errors.any? %>
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-       <li class="error_messages"><%= message %></li>
+      <%= form_with(model: @user, local: true) do |f| %>
+        <% if @user.errors.any? %>
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li class="error_messages"><%= message %></li>
+              <% end %>
+          </ul>
+        <% end %>
+
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, placeholder: t('view.nickname'), class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :profile %>
+          <%= f.text_area :profile, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :profile_image %><br>
+          <%= f.file_field :profile_image %>
+          <%= f.hidden_field :profile_image_cache %>
+        </div>
+
+        <%= f.submit t('view.create'), class: 'btn run-btn mt-5' %>
       <% end %>
-    </ul>
-  <% end %>
+      <div class="row d-flex justify-content-center my-5">
+        <button class="btn small-btn ml-3 mt-4"><%= link_to t('view.back'), user_path %></button>
+      </div>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :profile %>
-  <%= f.text_area :profile %>
-  <%= f.label :profile_image %>
-  <%= f.file_field :profile_image %>
-  <%= f.hidden_field :profile_image_cache %>
-  <%= f.submit t('view.create') %>
-<% end %>
-
-<%= link_to t('view.edit'), user_path %>
+    </div>
+  </body>
+</div>
