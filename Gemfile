@@ -15,7 +15,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'bcrypt', '3.1.13'
 gem 'carrierwave'
-gem 'faker'
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'mini_magick'
 gem 'ransack'
 
