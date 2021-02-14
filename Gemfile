@@ -15,6 +15,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'bcrypt', '3.1.13'
 gem 'carrierwave'
+gem 'faker'
 gem 'mini_magick'
 gem 'ransack'
 
