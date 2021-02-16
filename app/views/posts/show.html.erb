@@ -14,7 +14,7 @@
           <% end %>
           <div class="center">
             <p><%= @post.user.name %>さん</p>
-            <button class="btn square-btn btn-lg"><%= link_to "#{@post.user.name}さんのページをみる" ,user_path(@post.user.id) %></button>
+            <button class="profile-link btn square-btn btn-lg"><%= link_to "#{@post.user.name}さんのページをみる" ,user_path(@post.user.id) %></button>
           </div>
         </div>
 

@@ -44,6 +44,8 @@ ja:
     flash:
       user_create: ユーザーを登録し、ログインしました。
       user_update: ユーザー情報を編集しました。
+      login_failure: ログインに失敗しました。
+      session_delete: ログアウトしました。
       limit_access: 実行権限がありません。
       post_save: 記事を登録しました。
       post_update: 記事を編集しました。
