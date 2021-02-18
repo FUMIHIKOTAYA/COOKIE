@@ -4,4 +4,9 @@ FactoryBot.define do
     reason { 'test_reason' }
     post
   end
+  factory :order2, class: Order do
+    recommend_dish { 'test2_dish' }
+    reason { 'test2_reason' }
+    post
+  end
 end
