@@ -16,6 +16,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bcrypt', '3.1.13'
 gem 'carrierwave'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'kaminari'
 gem 'mini_magick'
 gem 'ransack'
 
@@ -37,7 +38,7 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  gem 'webdrivers'  
+  gem 'webdrivers'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
