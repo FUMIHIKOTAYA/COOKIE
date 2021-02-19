@@ -26,7 +26,7 @@
             <h4><%= t('view.food_genre') %>：<%= @post.food_genre %></h4>
           </div>
           <div class="row pl-4">
-            <h4><%= t('view.note') %>：<%= strip_tags(@post.note).truncate(80) %></h4>
+            <h4><%= t('view.note') %>：<%= strip_tags(@post.note).truncate(800) %></h4>
           </div>
           <% @post.orders.each_with_index do |order, i| %>
             <table class="table table-responsive post-list">
@@ -42,7 +42,7 @@
                       <%= image_tag 'default_dish.png', :size =>'120x120', class:"rounded" %>
                     <% end %>
                   </td>
-                  <td class="border-top-0"><%= strip_tags(order.reason).truncate(160) %></td>
+                  <td class="border-top-0"><%= strip_tags(order.reason).truncate(400) %></td>
                 </tr>
               </tbody>
             </table>
