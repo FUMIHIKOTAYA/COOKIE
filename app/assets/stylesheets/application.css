@@ -112,3 +112,12 @@ a {
  background: #d1bc88;
  color: #e8ebed;
 }
+
+.pagination>li>a {
+  border: none;
+  color: #4a4139;
+}
+
+.pagination>li>a:hover {
+  border-radius: 15px;
+}
