@@ -10,7 +10,7 @@
   <p><%= link_to t('view.create_post'), new_post_path, class: 'btn square_btn btn-lg' %></p>
 </div>
 
-  <div class="row not-underline">
+  <div class="row  not-underline">
     <% @posts.each do |post| %>
       <%= link_to post_path(post.id), class:"card-link text-dark" do %>
         <div class="card card-type m-2" style="width: 35rem;">
