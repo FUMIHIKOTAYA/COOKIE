@@ -1,7 +1,7 @@
 <div id="wrapper">
   <body id="signup_page">
     <div class="login_form pt-0">
-      <h2 class="signup_title"><%= t('view.login') %></h2>
+      <h2 class="signup_title"><i class="fa fa-key" aria-hidden="true"></i><%= t('view.login') %></h2>
 
       <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
 

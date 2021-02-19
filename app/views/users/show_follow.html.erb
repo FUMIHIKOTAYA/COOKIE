@@ -1,9 +1,9 @@
-<h2 class="text-center mt-5"><%= t('view.follows') %></h2>
+<h2 class="text-center mt-5"><i class="fa fa-handshake-o" aria-hidden="true"></i><%= t('view.follows') %></h2>
 
 <div class="row">
   <div class="col-md-6">
     <h5 class="text-center mt-4"><%= t('view.follow') %></h5>
-    <h3 class="follow-list font-weight-bold py-3"><%= @user.name %><%= t('view.follow_users') %></h3>
+    <h3 class="follow-list font-weight-bold py-3"><%= @user.name %><%= t('view.follow_users') %><i class="fa fa-paper-plane-o" aria-hidden="true"></i></h3>
       <% @following_users.each do |follow_user| %>
         <div class="row mt-5 ml-1">
           <div class="row col-md-2 col-xs-12 ml-3">
@@ -28,7 +28,7 @@
 
   <div class="col-md-6">
     <h5 class="text-center mt-4"><%= t('view.follower') %></h5>
-    <h3 class="follow-list font-weight-bold py-3"><%= @user.name %><%= t('view.follower_users') %></h3>
+    <h3 class="follow-list font-weight-bold py-3"><%= @user.name %><%= t('view.follower_users') %><i class="fa fa-reply-all" aria-hidden="true"></i></h3>
       <% @followers_users.each do |follower_user| %>
         <div class="row mt-5 ml-1">
           <div class="row col-md-2 col-xs-12 ml-5">
