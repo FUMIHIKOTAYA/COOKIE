@@ -8,7 +8,7 @@ module SessionsHelper
   end
 
   def authenticate_user
-    redirect_to new_session_path, notice: 'ログインして始められます。' unless logged_in?
+    redirect_to login_path, notice: 'ログインして始められます。' unless logged_in?
   end
 
   def logged_user

@@ -19,7 +19,7 @@ RSpec.describe 'User管理機能', type: :system, xhr: true do
   describe 'セッション機能' do
     context 'ログインした場合' do
       it '登録済みのユーザー名が表示されること' do
-        visit new_session_path
+        visit login_path
         fill_in 'Email', with: 'user1@example.com'
         fill_in 'Password', with: 'password'
         click_button 'ログイン'
@@ -27,7 +27,7 @@ RSpec.describe 'User管理機能', type: :system, xhr: true do
       end
     end
     before do
-      visit new_session_path
+      visit login_path
       fill_in 'Email', with: 'user2@example.com'
       fill_in 'Password', with: 'password'
       click_button 'ログイン'
@@ -57,7 +57,7 @@ RSpec.describe 'User管理機能', type: :system, xhr: true do
 
   describe 'フォロー機能' do
     before do
-      visit new_session_path
+      visit login_path
       fill_in 'Email', with: 'user1@example.com'
       fill_in 'Password', with: 'password'
       click_button 'ログイン'
@@ -85,7 +85,7 @@ RSpec.describe 'User管理機能', type: :system, xhr: true do
 
   describe 'メッセージ機能' do
       before do
-        visit new_session_path
+        visit login_path
         fill_in 'Email', with: 'user1@example.com'
         fill_in 'Password', with: 'password'
         click_button 'ログイン'
@@ -110,7 +110,7 @@ RSpec.describe 'User管理機能', type: :system, xhr: true do
           fill_in 'message_body', with: 'Hello'
           click_on '送信'
           click_link 'ログアウト'
-          visit new_session_path
+          visit login_path
           fill_in 'Email', with: 'user2@example.com'
           fill_in 'Password', with: 'password'
           click_button 'ログイン'
@@ -118,7 +118,7 @@ RSpec.describe 'User管理機能', type: :system, xhr: true do
           click_on 'フォロー・フォロワー一覧'
           click_on 'メッセージ'
           click_link 'ログアウト'
-          visit new_session_path
+          visit login_path
           fill_in 'Email', with: 'user1@example.com'
           fill_in 'Password', with: 'password'
           click_button 'ログイン'

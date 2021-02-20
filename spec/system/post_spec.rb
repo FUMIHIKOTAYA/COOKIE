@@ -5,7 +5,7 @@ RSpec.describe 'Post管理機能', type: :system do
   let!(:post2) { create(:post2, user: user) }
 
   def logged_in
-    visit new_session_path
+    visit login_path
     fill_in 'Email', with: 'user1@example.com'
     fill_in 'Password', with: 'password'
     click_button 'ログイン'
@@ -72,7 +72,7 @@ RSpec.describe 'Post管理機能', type: :system do
     end
     context 'いつもオーダーする一品であいまい検索をした場合' do
       it "検索キーワードを含む飲食店が絞り込まれる" do
-        fill_in :q_orders_recommend_dish_cont, with: "test2_dish"
+        fill_in :q_orders_recommend_dish_cont, with: "test2"
         click_on '検索'
         expect(page).to have_content 'test2_name'
       end
