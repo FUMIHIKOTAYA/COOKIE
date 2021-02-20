@@ -1,14 +1,16 @@
 <div class="container">
   <div class="user_title">
-    <h2 class="text-center text-muted pt-3"><i class="fa fa-address-book-o" aria-hidden="true"></i><%= @user.name %><%= t('view.show_user') %></h2>
+    <h2 class="text-center text-muted pt-3"><i class="fa fa-address-book-o" aria-hidden="true"></i> <%= @user.name %><%= t('view.show_user') %></h2>
   </div>
 
-  <div class="row d-flex flex-row-reverse my-2">
+  <div class="row d-flex flex-row-reverse m-2">
     <% if @user.id == current_user.id %>
       <p><%= link_to t('view.follows'),  follow_user_path(current_user.id), class: 'btn square-btn' %></p>
+      <h5 class="text-muted"><%= t('view.message_recommend') %><i class="fa fa-caret-right" aria-hidden="true"></i></h5>
     <% end %>
     <% if @user.id != current_user.id %>
       <%= render 'follow_form', user: @user %>
+      <h5 class="text-muted"><%= t('view.follow_recommend') %><i class="fa fa-caret-right" aria-hidden="true"></i></h5>
     <% end %>
   </div>
 

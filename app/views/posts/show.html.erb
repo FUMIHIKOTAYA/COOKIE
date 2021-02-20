@@ -16,6 +16,7 @@
             <p><%= @post.user.name %>さん</p>
             <button class="profile-link btn square-btn btn-lg"><%= link_to "#{@post.user.name}さんのページをみる" ,user_path(@post.user.id) %></button>
           </div>
+          <h5 class="text-muted d-flex align-items-end"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i><%= t('view.follow_recommend') %></h5>
         </div>
 
         <div class="restaurant-content">
