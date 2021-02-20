@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   resources :tops, only: [:index]
   resources :posts
 
-  resources :sessions, only: [:new, :create, :destroy]
+  get 'sessions/new'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
   resources :users, only: [:new, :show, :create, :edit] do
     get :follow, on: :member
   end

@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to user_path(user.id)
     else
-      flash[:danger] = t('view.flash.login_failure')
+      flash.now[:alert] = t('view.flash.login_failure')
       render :new
     end
   end
@@ -15,6 +15,6 @@ class SessionsController < ApplicationController
   def destroy
     session.delete(:user_id)
     flash[:notice] = t('view.flash.session_delete')
-    redirect_to new_session_path
+    redirect_to login_url
   end
 end
