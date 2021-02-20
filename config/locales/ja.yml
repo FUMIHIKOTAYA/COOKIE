@@ -22,7 +22,7 @@ ja:
     create_post: 飲食店登録画面
     create_recommend: 飲食店を登録しよう
     show_user: さんのページ
-    message_recommend: フォローしている人にメッセージを送ろう
+    message_recommend: フォロー・フォロワーにメッセージを送ろう
     follow_recommend: フォローしてメッセージを送ろう
     posts_user: さんの投稿
     no_posts: まだ投稿はありません
