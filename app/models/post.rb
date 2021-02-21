@@ -2,6 +2,8 @@ class Post < ApplicationRecord
   has_many :orders, dependent: :destroy, inverse_of: :post
   accepts_nested_attributes_for :orders, allow_destroy: true, reject_if: :all_blank
   belongs_to :user
+  has_many :likes
+  has_many :liked_users, through: :likes, source: :user
 
   validates :restaurant_name, presence: true, length: { maximum: 50 }
   validates :food_genre, presence: true
