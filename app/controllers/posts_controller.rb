@@ -14,7 +14,9 @@ class PostsController < ApplicationController
     2.times { @post.orders.build }
   end
 
-  def show; end
+  def show
+    @like = Like.new
+  end
 
   def edit
     @post.orders.build

@@ -28,4 +28,8 @@ class User < ApplicationRecord
   def unfollow!(other_user)
     active_relationships.find_by(followed_id: other_user.id).destroy
   end
+
+  def already_liked?(post)
+    self.likes.exists?(post_id: post.id)
+  end
 end

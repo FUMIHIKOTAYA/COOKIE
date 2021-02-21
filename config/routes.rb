@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   root 'tops#index'
 
   resources :tops, only: [:index]
-  resources :posts
+  resources :posts do
+    resources :likes, only: [:create, :destroy]
+  end
 
   get 'sessions/new'
   get '/login', to: 'sessions#new'
