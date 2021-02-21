@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def index
     @q = Post.ransack(params[:q])
-    @posts = @q.result.includes(:orders).page(params[:page]).per(12)
+    @posts = @q.result.includes(:orders).page(params[:page]).per(12).sorted
   end
 
   def new

@@ -4,7 +4,9 @@
   <h3 class="text-center text-muted pt-3"><i class="fa fa-home  fa-2x" aria-hidden="true"></i><%= t('view.index_post') %></h3>
   <h2 class="text-center font-weight-bold pb-5"><%= t('view.index_recommend') %></h2>
 
-  <%= render 'search' %>
+  <div class="row d-flex justify-content-center mx-2">
+    <%= render 'search' %>
+  </div>
 
   <div class="row d-flex justify-content-center my-2">
     <p><%= link_to t('view.create_post'), new_post_path, class: 'btn square_btn btn-lg' %></p>
