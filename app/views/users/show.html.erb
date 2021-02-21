@@ -83,6 +83,14 @@
     </div>
   </div>
 
+  <h3>いいねしている投稿</h3>
+  <% @user.liked_posts.each do |post| %>
+    <%= post.user.name %>
+    <%= post.restaurant_name%>
+    <%= post.food_genre %>
+  <% end %>
+
+
   <div class="row d-flex justify-content-center my-2">
     <p><%= link_to t('view.index_post'), posts_path, class: 'btn square_btn' %></p>
   </div>
