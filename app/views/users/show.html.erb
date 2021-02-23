@@ -45,9 +45,9 @@
   </div>
 
   <div class="user_title">
-    <h4><strong><%= @user.name %><%= t('view.posts_user') %></strong></h4>
+    <h4><strong class="mt-4 ml-3"><%= @user.name %><%= t('view.posts_user') %></strong></h4>
     <% unless @posts.present? %>
-      <%= t('view.no_posts') %>
+      <p class="text-muted ml-4"><%= t('view.no_posts') %></p>
     <% end %>
     <div class="row not-underline">
     <% @posts.each do |post| %>
@@ -83,16 +83,33 @@
     </div>
   </div>
 
-  <h3>いいねしている投稿</h3>
-  <% @user.liked_posts.each do |post| %>
-    <%= post.user.name %>
-    <%= post.restaurant_name%>
-    <%= post.food_genre %>
+  <h4><strong class="ml-3">いいねしている投稿</strong></h4>
+  <% unless @user.liked_posts.present? %>
+    <p class="text-muted ml-4"><%= t('view.no_liked_posts') %></p>
   <% end %>
-
-
-  <div class="row d-flex justify-content-center my-2">
-    <p><%= link_to t('view.index_post'), posts_path, class: 'btn square_btn' %></p>
+  <div class="container-fluid ml-4 mt-4">
+    <div class="row">
+      <% @user.liked_posts.each do |post| %>
+        <div class="col-xs-6 col-sm-3 col-md-2">
+          <div class="likes-users text-center">
+            <%= link_to post_path(post) do %>
+            <% post.orders.each do |order| %>
+            <% if order.dish_image? %>
+              <%= image_tag "#{order.dish_image}", :size =>'60x60' ,class:"rounded-circle" %>
+            <% else %>
+              <%= image_tag 'default_dish.png', :size =>'60x60', class:"rounded-circle" %>
+            <% end %>
+            <% end %>
+            <% end %>
+            <h5 class="text-center mt-2"><%= post.restaurant_name %></h5>
+            <h6 class="text-center text-muted mt-0"><%= post.food_genre %></h6>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 
+  <div class="row d-flex justify-content-center mt-5">
+    <p><%= link_to t('view.index_post'), posts_path, class: 'btn square_btn' %></p>
+  </div>
 </div>

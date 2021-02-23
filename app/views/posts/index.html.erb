@@ -40,8 +40,8 @@
               <% end %>
             </div>
           </div>
-          <p>（いいね！ <%= post.liked_users.count %>件）</p>
-          <caption><%= t('view.index_caption') %></caption>
+          <small><p class="text-right"><i class="fa fa-heart-o" aria-hidden="true"></i>いいね！ <%= post.liked_users.count %>件</p></small>
+          <small><caption><%= t('view.index_caption') %></caption></small>
         </div>
       <% end %>
     <% end %>

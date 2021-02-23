@@ -2,17 +2,17 @@
   <div class="col-10 col-lg-8 col-xl-6 mb-3 mb-md-0">
     <div class="show_title">
       <h3 class="text-center text-muted pt-3"><i class="fa fa-cutlery" aria-hidden="true"></i><%= t('view.show_post') %></h3>
-      <div><p class="posted-date text-muted">投稿日 <%= @post.created_at.strftime('%Y/%m/%d') %></p></div>
+      <div><small><p class="posted-date text-muted">投稿日 <%= @post.created_at.strftime('%Y/%m/%d') %></p></small></div>
     </div>
     <div class="card py-3">
       <div class="card-body">
-        <div class="row pl-4">
+        <div class="row ml-4">
           <% if @post.user.profile_image? %>
             <%= image_tag "#{@post.user.profile_image}", :size =>'80x80' %>
           <% else %>
             <%= image_tag 'default.png', :size =>'80x80' %>
           <% end %>
-          <div class="center">
+          <div class="ml-4">
             <p><%= @post.user.name %>さん</p>
             <button class="profile-link btn square-btn btn-lg"><%= link_to "#{@post.user.name}さんのページをみる" ,user_path(@post.user.id) %></button>
           </div>
@@ -58,18 +58,41 @@
       </div>
     </div>
 
-    <h3>いいね件数: <%= @post.likes.count %></h3>
+    <h4 class="text-muted mt-4 ml-4">いいね件数: <%= @post.likes.count %></h4>
     <% if current_user.already_liked?(@post) %>
-      <%= button_to 'いいねを取り消す', post_like_path(@post), method: :delete %>
+      <%= button_to post_like_path(@post), {method: :delete, class: "likes mt-1"} do %>
+        <i class="fa fa-heart fa-lg unlike-btn" aria-hidden="true"></i><small class="text-muted"> いいねを取り消す</small>
+      <% end %>
     <% else %>
-      <%= button_to 'いいね', post_likes_path(@post) %>
-    <% end %>
-    <h2>いいねしたユーザー</h2>
-    <% @post.liked_users.each do |user| %>
-      <li><%= user.name %></li>
+      <%= button_to post_likes_path(@post), class: "likes mt-1" do %>
+        <i class="fa fa-heart fa-lg like-btn" aria-hidden="true"></i><small class="text-muted"> いいね</small>
+      <% end %>
     <% end %>
 
-    <div class="row d-flex justify-content-center my-3">
+    <h4 class="text-muted mt-4 ml-4">いいねしたユーザー</h4>
+    <% unless @post.liked_users.present? %>
+      <small class="text-muted ml-5"><%= t('view.no_liked_users') %></small>
+    <% end %>
+    <div class="container-fluid ml-4 mt-3">
+      <div class="row">
+        <% @post.liked_users.each do |user| %>
+          <div class="col-xs-6 col-sm-3 col-md-2">
+            <div class="likes-users text-center">
+              <%= link_to user_path(user) do %>
+              <% if user.profile_image? %>
+                <%= image_tag "#{user.profile_image}", :size =>'60x60' ,class:"rounded-circle" %>
+              <% else %>
+                <%= image_tag 'default.png', :size =>'60x60', class:"rounded-circle" %>
+              <% end %>
+              <% end %>
+              <h5 class="text-center text-muted"><%= user.name %></h5>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center mt-5">
       <p><%= link_to t('view.index_post'), posts_path, class: 'btn square_btn' %></p>
     </div>
   </div>

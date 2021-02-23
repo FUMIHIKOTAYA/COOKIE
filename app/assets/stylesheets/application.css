@@ -69,6 +69,20 @@ a {
   font-weight: 300;
 }
 
+.likes{
+  border: none;
+  outline: none;
+  background: transparent;
+  text-align: center;
+  background-color: #f7f6f5;
+  border-radius: 5px;
+  margin-left: 40px;
+}
+
+.like-btn{color: #0d7daa;}
+
+.unlike-btn {color: #cc572c;}
+
 .btn-primary {
   background: #5694ba;
   color: #e8ebed;

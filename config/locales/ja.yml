@@ -26,6 +26,8 @@ ja:
     follow_recommend: フォローしてメッセージを送ろう
     posts_user: さんの投稿
     no_posts: まだ投稿はありません
+    no_liked_users: まだいいねしたユーザーはいません
+    no_liked_posts: まだいいねした投稿はありません
     follows: フォロー・フォロワー一覧
     follow: フォロー
     follower: フォロワー
