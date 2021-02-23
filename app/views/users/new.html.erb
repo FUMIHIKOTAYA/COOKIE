@@ -1,7 +1,7 @@
 <div id="wrapper">
   <body id="signup_page">
     <div class="signup_form pt-0">
-      <h2 class="signup_title"><i class="fa fa-address-card-o" aria-hidden="true"></i><br><%= t('view.sign_up') %></h2>
+      <h2 class="signup_title"><i class="fa fa-address-card-o fa-lg" aria-hidden="true"></i><br><%= t('view.sign_up') %></h2>
 
       <%= form_with(model: @user, local: true) do |f| %>
         <% if @user.errors.any? %>
