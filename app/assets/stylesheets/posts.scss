@@ -32,13 +32,13 @@
 }
 
 //index
-// .card-bgcolor{
-//   background: #e2e8ee;
-//   padding: 2em 1.2em 2em 0;
-// }
+.card-bgcolor{
+  background: #e2e8ee;
+  padding: 1em;
+}
 
 .card-type{
-  padding: 0.5em 2em;
+  padding: 0.5em 1.5em;
   background: white;
   border-top: solid 3px #1c361b;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.30);
@@ -100,7 +100,7 @@
   padding: 1em;
 }
 
-.likes-users {
+.posts-display {
   float: left;
 }
 

@@ -22,11 +22,11 @@
       <tr>
         <td colspan="2">
           <% if @user.profile_image? %>
-            <%= image_tag "#{@user.profile_image}", :size =>'120x120' %>
+            <%= image_tag "#{@user.profile_image}", :size =>'120x120', class:"mx-3" %>
           <% else %>
-            <%= image_tag 'default.png', :size =>'120x120' %>
+            <%= image_tag 'default.png', :size =>'120x120', class:"mx-3" %>
           <% end %>
-          <%= @user.name %>
+          <strong><%= @user.name %></strong>
         </td>
       </tr>
       <tr class="tr-color">
@@ -90,8 +90,8 @@
   <div class="container-fluid ml-4 mt-4">
     <div class="row">
       <% @user.liked_posts.each do |post| %>
-        <div class="col-xs-6 col-sm-3 col-md-2">
-          <div class="likes-users text-center">
+        <div class="col-xs-8 col-sm-4 col-md-3 col-xl-2">
+          <div class="posts-display text-center">
             <%= link_to post_path(post) do %>
             <% post.orders.each do |order| %>
             <% if order.dish_image? %>

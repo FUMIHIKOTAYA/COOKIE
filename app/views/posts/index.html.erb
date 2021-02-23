@@ -1,21 +1,21 @@
-<div class="row d-flex justify-content-center">
+<h3 class="text-center text-muted mt-5"><i class="fa fa-home  fa-2x" aria-hidden="true"></i><%= t('view.index_post') %></h3>
+<h2 class="text-center font-weight-bold mb-5"><%= t('view.index_recommend') %></h2>
 
-  <div class="m-5">
-  <h3 class="text-center text-muted pt-3"><i class="fa fa-home  fa-2x" aria-hidden="true"></i><%= t('view.index_post') %></h3>
-  <h2 class="text-center font-weight-bold pb-5"><%= t('view.index_recommend') %></h2>
+<div class="row d-flex justify-content-center mx-2">
+  <%= render 'search' %>
+</div>
 
-  <div class="row d-flex justify-content-center mx-2">
-    <%= render 'search' %>
-  </div>
+<div class="row d-flex justify-content-center mb-4">
+  <p><%= link_to t('view.create_post'), new_post_path, class: 'btn square_btn btn-lg' %></p>
+</div>
 
-  <div class="row d-flex justify-content-center my-2">
-    <p><%= link_to t('view.create_post'), new_post_path, class: 'btn square_btn btn-lg' %></p>
-  </div>
-
-  <div class="row  d-flex justify-content-center not-underline">
-    <% @posts.each do |post| %>
-      <%= link_to post_path(post.id), class:"card-link text-dark" do %>
-        <div class="card card-type m-2" style="width: 35rem;">
+<div class="container">
+  <div class="row not-underline  card-bgcolor">
+  <% @posts.each do |post| %>
+    <div class="col-xs-10 col-sm-8 col-md-6  col-xl-4">
+      <div class="posts-display">
+        <%= link_to post_path(post.id), class:"card-link text-dark" do %>
+        <div class="card card-type mb-4" style="width: 35rem;">
           <div class="card-body post-body">
             <table class="table table-responsive table-sm post-list">
               <tbody>
@@ -34,18 +34,22 @@
                 </tr>
               </tbody>
             </table>
-            <div>
+            <div class="mt-1">
               <% post.orders.each do |order| %>
-                <span class="badge badge-pill badge-dark"><%= order.recommend_dish.truncate(12) %></span>
+                <span class="badge badge-pill badge-dark"><%= order.recommend_dish.truncate(20) %></span>
               <% end %>
             </div>
           </div>
           <small><p class="text-right"><i class="fa fa-heart-o" aria-hidden="true"></i>いいね！ <%= post.liked_users.count %>件</p></small>
           <small><caption><%= t('view.index_caption') %></caption></small>
         </div>
-      <% end %>
-    <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
   </div>
-  </div>
+</div>
+
+<div class="row d-flex justify-content-center my-2">
   <%= paginate @posts %>
 </div>

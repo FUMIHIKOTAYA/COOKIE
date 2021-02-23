@@ -1,5 +1,5 @@
 <div class="row d-flex justify-content-center">
-  <div class="col-10 col-lg-8 col-xl-6 mb-3 mb-md-0">
+  <div class="col-xs-10 col-lg-8 col-xl-6 mb-3">
     <div class="show_title">
       <h3 class="text-center text-muted pt-3"><i class="fa fa-cutlery" aria-hidden="true"></i><%= t('view.show_post') %></h3>
       <div><small><p class="posted-date text-muted">投稿日 <%= @post.created_at.strftime('%Y/%m/%d') %></p></small></div>
@@ -76,8 +76,8 @@
     <div class="container-fluid ml-4 mt-3">
       <div class="row">
         <% @post.liked_users.each do |user| %>
-          <div class="col-xs-6 col-sm-3 col-md-2">
-            <div class="likes-users text-center">
+          <div class="col-xs-10 col-sm-2">
+            <div class="posts-display text-center">
               <%= link_to user_path(user) do %>
               <% if user.profile_image? %>
                 <%= image_tag "#{user.profile_image}", :size =>'60x60' ,class:"rounded-circle" %>
