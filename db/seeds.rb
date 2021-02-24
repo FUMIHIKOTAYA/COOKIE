@@ -1,6 +1,12 @@
 Faker::Config.locale = :ja
 require 'faker'
 
+User.create!(
+  name: "testuser",
+  email: "test@example.com",
+  password: "password",
+)
+
 20.times do |n|
   name = Faker::JapaneseMedia::StudioGhibli.character
   email = Faker::Internet.email
@@ -20,7 +26,7 @@ end
   restaurant_name = Faker::Restaurant.name
   food_genre = rand(19)
   note = Faker::Restaurant.review
-  user_id = rand(1..20)
+  user_id = rand(1..21)
   Post.create!(
     restaurant_name: restaurant_name,
     food_genre: food_genre,
